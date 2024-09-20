@@ -77,3 +77,11 @@ function deleteProject(id){
     projects = projects.filter((project) => project.id !== id);
     return projectToDelete;
 }
+
+module.exports = {
+    getAllProjects,
+    getProjectById,
+    createProject,
+    updateProject,
+    deleteProject
+}
