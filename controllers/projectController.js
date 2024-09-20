@@ -72,7 +72,7 @@ function updateProject(projectToUpdated){
 }
 
 function deleteProject(id){
-    const projectToDelete = getTaskById(id);
+    const projectToDelete = getProjectById(id);
     console.log("project to delete: " + projectToDelete);
     projects = projects.filter((project) => project.id !== id);
     return projectToDelete;
