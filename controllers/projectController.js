@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require('uuid');
 let projects = [
     {
         id: "5f0dba4a-e8d3-4a63-9cf1-741c53f6be72",
@@ -65,10 +66,9 @@ function createProject(name, description,startDate,endDate,teamMembers,budget){
 }
 
 function updateProject(projectToUpdated){
-    projectToUpdated.id = parseInt(projectToUpdated.id);
     projects = projects.map((t) => (t.id === projectToUpdated.id ? projectToUpdated : t));
-    const foundProject = projects.find((t) => t.id === projectToUpdate.id);
-    return foundProject || null;
+    const foundProject = projects.find((t) => t.id === projectToUpdated.id);
+    return foundProject;
 }
 
 function deleteProject(id){

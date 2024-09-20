@@ -23,6 +23,7 @@ router.get('/:id', (req, res)=> {
 });
 
 router.post('/', (req, res)=> {
+    console.log(req.body);
     const { name, description, startDate, endDate, status, teamMembers, budget } = req.body;
     const newProject = projectController.createProject(name, description, startDate, endDate, status, teamMembers,budget);
     res.status(200).json(newProject);
@@ -32,7 +33,6 @@ router.post('/', (req, res)=> {
 router.put('/:id', (req, res) => {
     const { id } = req.params;
     const projectToUpdate = req.body;
-    projectToUpdate.id = parseInt(id);
 
     const projectUpdated = projectController.updateProject(projectToUpdate);
 

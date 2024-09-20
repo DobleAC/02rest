@@ -5,8 +5,8 @@ const projectRouters = require('./routes/projectRoutes');
 
 const app = express();
 
-app.use('/projects',projectRouters);
 app.use(bodyParser.json());
+app.use('/projects',projectRouters);
 
 const PORT = 3000;
 
