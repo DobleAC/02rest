@@ -50,14 +50,14 @@ function getProjectById(id){
     return projects.find(project => project.id === id);
 }
 
-function createProject(name, description,startDate,endDate,teamMembers,budget){
+function createProject(name, description,startDate,endDate,status,teamMembers,budget){
     const newProject = {
         id: uuidv4(),
         name,
         description,
         startDate,
         endDate,
-        status: "planificado",
+        status,
         teamMembers,
         budget
     }
