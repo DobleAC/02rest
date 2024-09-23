@@ -112,7 +112,6 @@ describe('POST /projects', () => {
     it('4. Debería agregar un proyecto al arreglo y regresar un estatus 200', async() => {
 
         const project = {
-            id: "9c3dba8a-e8da-4a63-5cf1-741c53f4be7m",
             name: "Sistema de Correo",
             description: "Implementar un sistema para la gestión de correo.",
             startDate: "2024-12-01",
@@ -133,15 +132,19 @@ describe('PUT /projects/5f0dba4a-e8d3-4a63-9cf1-741c53f6be72', () => {
     it('5. Debería actualizar un proyecto y regresar un estatus 200', async() => {
 
         const project = {
-            id: "5f0dba4a-e8d3-4a63-9cf1-741c53f6be72",
-            name: "Nuevo Sistema de Gestión de informacios",
-            description: "Implementar un sistema de recursos.",
-            startDate: "2024-09-01",
-            endDate: "2025-02-01",
+            id:"5f0dba4a-e8d3-4a63-9cf1-741c53f6be72",
+            name: "prueba actualizar",
+            description: "Desarrollar una aplicación móvil para gestionar ventas.",
+            startDate: "2024-10-01",
+            endDate: "2025-03-01",
             status: "en progreso",
-            teamMembers: ["Carlos Pérez", "Sin asignar", "Luis Martínez"],
-            budget: 50000
-          };
+            teamMembers: [
+                    "María López",
+                    "Juan Hernández",
+                    "Sofía Torres"
+                ],
+            budget: 75000
+        };
 
         const res = await request(app).put('/projects/5f0dba4a-e8d3-4a63-9cf1-741c53f6be72').send(project);
 
