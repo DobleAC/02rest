@@ -44,13 +44,13 @@ router.post('/', (req, res)=> {
 router.put('/:id', (req, res) => {
     const projectToUpdated  = req.body;
 
-    if(validaciones.validatedKeys(req.body))
-        return res.status(400).json({ code: 400, message: 'Required name key' });
-    else if(validaciones.validateDateRange(req.body))
-        return res.status(400).json({ code: 400, message: 'Invalid date range' });
-    else if(validaciones.validateStatus(req.body))
-        return res.status(400).json({ code: 400, message: 'Invalid status' });
-    else{
+    if(!validaciones.validatedKeys(req.body)){
+        res.status(400).json({ code: 400, message: 'Missing required key: name' });
+    }else if(!validaciones.validateDateRange(req.body)){
+        res.status(400).json({ code: 400, message: 'Invalid date range' });
+    }else if(!validaciones.validateStatus(req.body)){
+        res.status(400).json({ code: 400, message: 'Invalid status' });
+    }else{
         const updatedProject = projectController.updateProject(projectToUpdated);
 
         if (updatedProject) {
